@@ -10,10 +10,10 @@ export const initialContext = {
   email: "",
   updateEmail: () => {},
   meistrasTypes: [],
-  addmeistrasType: () => {},
-  deletemeistrasType: () => {},
-  editmeistrasType: () => {},
-  updatemeistrasTypes: () => {},
+  addMeistrasType: () => {},
+  deleteMeistrasType: () => {},
+  editMeistrasType: () => {},
+  updateMeistrasTypes: () => {},
 }
 
 export const GlobalContext = createContext(initialContext);
@@ -23,7 +23,7 @@ export const ContextWrapper = (props) => {
   const [role, setRole] = useState(initialContext.role);
   const [fullname, setFullname] = useState(initialContext.fullname);
   const [email, setEmail] = useState(initialContext.email);
-  const [meistrasTypes, setmeistrasTypes] = useState(
+  const [meistrasTypes, setMeistrasTypes] = useState(
     initialContext.meistrasTypes
   )
 
@@ -60,7 +60,7 @@ export const ContextWrapper = (props) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "ok" && data.list) {
-          setmeistrasTypes(data.list.map((t) => t.title))
+          setMeistrasTypes(data.list.map((t) => t.title))
         }
       })
       .catch(console.error)
@@ -85,22 +85,22 @@ export const ContextWrapper = (props) => {
     setEmail(email)
   }
 
-  function updatemeistrasTypes(meistrasTypes) {
-    setmeistrasTypes(meistrasTypes)
+  function updateMeistrasTypes(meistrasTypes) {
+    setMeistrasTypes(meistrasTypes)
   }
 
-  function addmeistrasType(meistrasType) {
-    setmeistrasTypes((pre) => [...pre, meistrasType])
+  function addMeistrasType(meistrasType) {
+    setMeistrasTypes((pre) => [...pre, meistrasType])
   }
 
-  function deletemeistrasType(meistrasType) {
-    setmeistrasTypes((pre) => pre.filter((title) => title !== meistrasType))
+  function deleteMeistrasType(meistrasType) {
+    setMeistrasTypes((pre) => pre.filter((title) => title !== meistrasType))
   }
 
-  function editmeistrasType(oldmeistrasType, newmeistrasType) {
-    setmeistrasTypes((pre) =>
+  function editMeistrasType(oldMeistrasType, newMeistrasType) {
+    setMeistrasTypes((pre) =>
       pre.map((title) =>
-        title === oldmeistrasType ? newmeistrasType : title
+        title === oldMeistrasType ? newMeistrasType : title
       )
     )
   }
@@ -115,10 +115,10 @@ export const ContextWrapper = (props) => {
     email,
     updateEmail,
     meistrasTypes,
-    addmeistrasType,
-    deletemeistrasType,
-    editmeistrasType,
-    updatemeistrasTypes,
+    addMeistrasType,
+    deleteMeistrasType,
+    editMeistrasType,
+    updateMeistrasTypes,
   }
 
   return (
