@@ -9,11 +9,11 @@ export const initialContext = {
   updateFullname: () => {},
   email: "",
   updateEmail: () => {},
-  exampleTypes: [],
-  addExampleType: () => {},
-  deleteExampleType: () => {},
-  editExampleType: () => {},
-  updateExampleTypes: () => {},
+  meistrasTypes: [],
+  addmeistrasType: () => {},
+  deletemeistrasType: () => {},
+  editmeistrasType: () => {},
+  updatemeistrasTypes: () => {},
 }
 
 export const GlobalContext = createContext(initialContext);
@@ -23,8 +23,8 @@ export const ContextWrapper = (props) => {
   const [role, setRole] = useState(initialContext.role);
   const [fullname, setFullname] = useState(initialContext.fullname);
   const [email, setEmail] = useState(initialContext.email);
-  const [exampleTypes, setExampleTypes] = useState(
-    initialContext.exampleTypes
+  const [meistrasTypes, setmeistrasTypes] = useState(
+    initialContext.meistrasTypes
   )
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export const ContextWrapper = (props) => {
 
   // Pradinis darbu tipu masyvas
   useEffect(() => {
-    fetch("http://localhost:3001/api/example-types", {
+    fetch("http://localhost:3001/api/meistras-types", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -60,7 +60,7 @@ export const ContextWrapper = (props) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "ok" && data.list) {
-          setExampleTypes(data.list.map((t) => t.title))
+          setmeistrasTypes(data.list.map((t) => t.title))
         }
       })
       .catch(console.error)
@@ -85,22 +85,22 @@ export const ContextWrapper = (props) => {
     setEmail(email)
   }
 
-  function updateExampleTypes(exampleTypes) {
-    setExampleTypes(exampleTypes)
+  function updatemeistrasTypes(meistrasTypes) {
+    setmeistrasTypes(meistrasTypes)
   }
 
-  function addExampleType(exampleType) {
-    setExampleTypes((pre) => [...pre, exampleType])
+  function addmeistrasType(meistrasType) {
+    setmeistrasTypes((pre) => [...pre, meistrasType])
   }
 
-  function deleteExampleType(exampleType) {
-    setExampleTypes((pre) => pre.filter((title) => title !== exampleType))
+  function deletemeistrasType(meistrasType) {
+    setmeistrasTypes((pre) => pre.filter((title) => title !== meistrasType))
   }
 
-  function editExampleType(oldExampleType, newExampleType) {
-    setExampleTypes((pre) =>
+  function editmeistrasType(oldmeistrasType, newmeistrasType) {
+    setmeistrasTypes((pre) =>
       pre.map((title) =>
-        title === oldExampleType ? newExampleType : title
+        title === oldmeistrasType ? newmeistrasType : title
       )
     )
   }
@@ -114,11 +114,11 @@ export const ContextWrapper = (props) => {
     updateFullname,
     email,
     updateEmail,
-    exampleTypes,
-    addExampleType,
-    deleteExampleType,
-    editExampleType,
-    updateExampleTypes,
+    meistrasTypes,
+    addmeistrasType,
+    deletemeistrasType,
+    editmeistrasType,
+    updatemeistrasTypes,
   }
 
   return (
