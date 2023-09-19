@@ -12,17 +12,17 @@ export function Footer() {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <Link to="/" className="nav-link p-0 text-body-secondary">
-                  Darbo skelbimai
+                  Meistru skelbimai
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/" className="nav-link p-0 text-body-secondary">
-                  Darbo paieška
+                  Meistru paieška
                 </Link>
               </li>
               <li className="nav-item mb-2">
                 <Link to="/" className="nav-link p-0 text-body-secondary">
-                  Naujausi darbo skelbimai
+                  Naujausi meistru skelbimai
                 </Link>
               </li>
               <li className="nav-item mb-2">
